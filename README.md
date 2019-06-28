@@ -10,7 +10,7 @@ DATA SERVICES: http://yourip:3000
 
 Note: This is a work in progress - some things might not work, like the matcher. I still need to figure out how to start it on Waves v1.0.0.
 
-============================================================================================================================================
+===============================================================
 
 import pywaves as pw
 
@@ -24,6 +24,6 @@ myAddress2 = pw.Address(seed='CFcgpu9qAYgU0UMCbGrDY0sZ5xTetogoXsj0URydia1ikJRRw1
 
 myAddress3 = pw.Address(seed='rYS9eQth0R2NLU6SECrU1bHCCAfGh95uhc6EPRKUoYtP7S8ZrrEwgkFKXpj7LocxlOJBKqkFjNy8w26zj6Kh4zamiPuslnDjsGnd')
 
-============================================================================================================================================
+===============================================================
 
 Enjoy: 3P3xu31BxFVmvQC17CzeSoTr8w7quFMZWwt  (Waves Mainnet)
