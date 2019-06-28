@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  node0:
+    image: zener007/waves-node-priv
+    environment:
+      - WAVES__NETWORK__NODE_NAME=node0
+      - WAVES_WALLET_SEED=rYS9eQth0R2NLU6SECrU1bHCCAfGh95uhc6EPRKUoYtP7S8ZrrEwgkFKXpj7LocxlOJBKqkFjNy8w26zj6Kh4zamiPuslnDjsGnd
+      - WAVES_WALLET_PASSWORD=4RvpRTmfrmmS7fVcpI
+      - WAVES_VERSION=latest
+      - WAVES_NETWORK=DEVNET
+      - WAVES_LOG_LEVEL=DEBUG
+      - WAVES_HEAP_SIZE=2g
+      - WAVES_AUTODETECT_ADDRESS=no
+      - WAVES_AUTODETECT_ADDRESS_PORT=6830
+      - WAVES__NETWORK__DECLARED_ADDRESS=node0:6864
+      - WAVES__MATCHER__ENABLE=yes
+      - WAVES__REST_API__ENABLE=yes
+      - WAVES__REST_API__PORT=6869
+      - WAVES__REST_API__API_KEY_HASH=3z7LKtx9DwNVtEZ2whjZqrdZH8iWTZsdQYwWbgsxeXhm
+      - WAVES__BLOCKCHAIN__CUSTOM__ADDRESS_SCHEME_CHARACTER=D
+      - WAVES__MINER__QUORUM=0
+      - WAVES__MINER__MIN_MICRO_BLOCK_AGE=2s
+      - WAVES__MINER__MICRO_BLOCK_INTERVAL=3s
+      - WAVES__MINER__INTERVAL_AFTER_LAST_BLOCK_THEN_GENERATION_IS_ALLOWED=999d
+    restart: always
+    networks:
+      default:
+        aliases:
+          - node0
+          - node0.waves
+    ports:
+      - "6816:6869"
+      - "6830:6864"
+      - "6886:6886"
+    volumes:
+      - ./node0:/waves
+  data-service-explorer:
+    image: zener007/data-service-explorer-priv
+    environment:
+      - WAVES_NETWORK_BYTE=D
+      - WAVES_NODES_LIST=node0:6869
+    depends_on:
+      - node0
+    restart: always
+    ports:
+      - "8080:8080"
+      - "8181:8181"
+      - "3000:3000"
+    networks:
+      default:
+        aliases:
+          - data-service-explorer
+          - data-service-explorer.waves
+networks:
+  default:
+    driver: bridge

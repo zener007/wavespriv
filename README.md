@@ -1,2 +1,4 @@
 # wavespriv
-A simple Waves Private Node
+Waves Private Node
+
+Run: "docker-compose up"
