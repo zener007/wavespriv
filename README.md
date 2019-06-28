@@ -27,3 +27,5 @@ myAddress3 = pw.Address(seed='rYS9eQth0R2NLU6SECrU1bHCCAfGh95uhc6EPRKUoYtP7S8Zrr
 ===============================================================
 
 Enjoy: 3P3xu31BxFVmvQC17CzeSoTr8w7quFMZWwt  (Waves Mainnet)
+
+Based off: https://github.com/wavesplatform/dev-toolkit
